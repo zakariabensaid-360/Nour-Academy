@@ -1,0 +1,61 @@
+# Nour Academy
+
+Nour Academy is a modern course catalog and reservation website for a tutoring network based in Nador, Morocco. The platform helps parents discover and compare educational courses by subject, academic level, and location, then add their preferred options to a cart before proceeding with the enrollment process.
+
+This project is built as a lightweight front-end web application using Vite and Tailwind CSS.
+
+## About the Project
+
+Nour Academy brings together three learning centers focused on academic support and language courses. The goal is to make it easy for parents to:
+
+- Explore available courses
+- Filter by level, subject, and location
+- Search for courses quickly
+- Check course pricing and seat availability
+- Add courses to a cart and continue to the order process
+
+## Features
+
+- Course listing with dynamic rendering
+- Search by course title
+- Filters by:
+  - Academic level
+  - Subject
+  - Location
+- Course display with:
+  - Price
+  - Schedule
+  - Remaining seats
+- Cart management with local storage
+- Responsive interface for desktop and mobile devices
+- Clean, modern design tailored to the educational brand
+
+## Tech Stack
+
+- HTML5
+- JavaScript
+- Vite
+- Tailwind CSS
+- LocalStorage for cart persistence
+
+## Project Structure
+
+```bash
+Nour-Academy/
+├── public/
+│   ├── logo.svg
+│   ├── Mathématiques.svg
+│   ├── Français.svg
+│   ├── Physique-Chimie.svg
+│   ├── SVT.svg
+│   └── Anglais.svg
+├── index.html
+├── main.js
+├── process.html
+├── process.js
+├── styles.css
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── .gitignore
+└── README.md
