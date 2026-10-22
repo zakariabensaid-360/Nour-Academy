@@ -127,24 +127,28 @@ if (window.localStorage.getItem("db") == undefined) {
 
 let db = JSON.parse(window.localStorage.getItem("db"));
 let main = document.getElementById("cards");
-let modal = document.getElementById("modal")
+ // let modal = document.getElementById("modal")
 let cart = document.getElementById("cart")
 let cart_num = document.getElementById("cart-num")
-modal.className += " hidden"
+
+
 cart.addEventListener("click", () => {
-  modal.classList.remove("hidden")
+  if(cart_num.textContent == 0) {
+    return
+  }
+  window.location.href = "/process.html"
 })
   
 
 let cartitems = []
-
+cart_num.textContent = cartitems.length
   if(cart_num.textContent == 0) {
     cart_num.classList += " hidden"
   }
-
+/*
   const hide = () => {
     modal.className += " hidden"
-  }
+  }*/
 function addtocart(id) {
   cart_num.classList.remove("hidden")
   cart_num.textContent = Number(cart_num.textContent) + 1
@@ -152,7 +156,11 @@ function addtocart(id) {
     if(db[i].id == id)
     cartitems.push(db[i])
   }
-  console.log(cartitems)
+
+
+    window.localStorage.setItem("cart_items", JSON.stringify(cartitems))
+
+console.log("test")
 }
 const rerender = (itemsToRender) => {
     main.innerHTML = "";
@@ -181,9 +189,10 @@ const rerender = (itemsToRender) => {
               </main>
               <footer class="flex justify-between items-center">
                 <button 
+                ${item.remainingSeats  == 0 ? "disabled" : "enabled"}
                 id="btn-${item.id}"
                 onclick="addtocart('${item.id}')"
-                  class="h-fit px-4 py-2 font-medium text-white rounded-xl bg-cyan-700 hover:bg-cyan-900 cursor-pointer"
+                  class="h-fit px-4 py-2 font-medium text-white rounded-xl bg-cyan-700 hover:bg-cyan-900 cursor-pointer "
                 >
                   add to cart
                 </button>
@@ -221,7 +230,7 @@ const applyFilters = () => {
 
     rerender(filtered);
 };
-search.addEventListener("change", applyFilters)
+search.addEventListener("input", applyFilters)
 subjectSelect.addEventListener("change", applyFilters);
 levelSelect.addEventListener("change", applyFilters);
 locationSelect.addEventListener("change", applyFilters);
