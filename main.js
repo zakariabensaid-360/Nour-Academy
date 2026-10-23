@@ -192,9 +192,9 @@ const rerender = (itemsToRender) => {
                 ${item.remainingSeats  == 0 ? "disabled" : "enabled"}
                 id="btn-${item.id}"
                 onclick="addtocart('${item.id}')"
-                  class="h-fit px-4 py-2 font-medium text-white rounded-xl bg-cyan-700 hover:bg-cyan-900 cursor-pointer "
+                  class="h-fit px-4 py-2 font-medium  rounded-xl  ${item.remainingSeats  == 0 ? "bg-white opacity-80 text-black border-2  cursor-not-allowed" : "bg-cyan-700 hover:bg-cyan-900 text-white cursor-pointer"}   "
                 >
-                  add to cart
+                  ${item.remainingSeats  == 0 ? "out of stock" : "add to cart"}
                 </button>
                 <span class="bg-white p-1 rounded-lg text-cyan-700">sits left: ${item.remainingSeats}</span>
               </footer>
