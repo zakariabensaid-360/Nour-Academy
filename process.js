@@ -1,5 +1,6 @@
 const phoneInput = document.getElementById('phone');
 let subbtn = document.getElementById("sub")
+ subbtn.disabled = true;
 phoneInput.addEventListener('blur', function() {
     
     const phonePattern = /^\+?[0-9]{8,15}$/; 
